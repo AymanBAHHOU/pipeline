@@ -20,6 +20,7 @@ pipeline {
     stage('Test'){
       steps {
         bat "mvn test"
+        bat "cobertura : cobertura"
       }
     }
     

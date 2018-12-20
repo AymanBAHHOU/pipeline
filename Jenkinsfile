@@ -20,12 +20,15 @@ pipeline {
     stage('Test'){
       steps {
         bat "mvn test"
+    }
+
+    stage('Coverage Code'){
+      steps {
         bat "mvn cobertura:cobertura -Dcobertura.report.format=xml"
       }
       post{
             success{
-            	junit 'target/surefire-reports/**/*.xml'
-                junit '**/target/site/cobertura/coverage.xml'
+                cobertura coberturaReportFile: '**/target/site/cobertura/coverage.xml'
             }
         }
 

@@ -43,6 +43,7 @@ pipeline {
     stage('JavaDoc Generation'){
       steps {
         bat "mvn javadoc:javadoc"
+        bat "mvn site"
       }
     }
 

@@ -20,8 +20,14 @@ pipeline {
     stage('Test'){
       steps {
         bat "mvn test"
-        bat "mvn cobertura:cobertura -Dcobertura.report.format=html"
+        bat "mvn cobertura:cobertura -Dcobertura.report.format=xml"
       }
+      post{
+            success{
+                cobertura '**/target/site/cobertura/coverage.xml'
+            }
+        }
+
     }
     
     stage('Deploy'){

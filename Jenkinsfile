@@ -39,6 +39,14 @@ pipeline {
         }
 
     }
+
+    stage('JavaDoc Generation'){
+      steps {
+        bat "mvn javadoc:javadoc"
+      }
+    }
+
+
     
     stage('Deploy'){
       steps {

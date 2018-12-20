@@ -24,7 +24,8 @@ pipeline {
       }
       post{
             success{
-                cobertura '**/target/site/cobertura/coverage.xml'
+            	junit 'target/surefire-reports/**/*.xml'
+                junit '**/target/site/cobertura/coverage.xml'
             }
         }
 

@@ -20,7 +20,7 @@ pipeline {
     stage('Test'){
       steps {
         bat "mvn test"
-        bat "mvn cobertura:cobertura -Dcobertura.report.format=xml"
+        bat "mvn cobertura:cobertura -Dcobertura.report.format=html"
       }
     }
     

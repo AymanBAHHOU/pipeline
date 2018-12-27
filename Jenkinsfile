@@ -50,8 +50,8 @@ pipeline {
     stage("build & SonarQube analysis") {
             agent any
             steps {
-              withSonarQubeEnv('My SonarQube Server') {
-                bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+              withSonarQubeEnv('SonarCube') {
+                bat 'mvn clean package sonar:sonar'
               }
             }
           }
